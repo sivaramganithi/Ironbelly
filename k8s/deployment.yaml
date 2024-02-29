@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: bb-demo
+   namespace: default
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         bb: web
+   template:
+      metadata:
+         labels:
+            bb: web
+      spec:
+        containers:
+        - name: demo-image-container
+          image: docker.io/sks97/demo-image:latest
+          ports:
+          - containerPort: 3000
+          resources:
+            limits:
+              cpu: 100m
+            requests:
+              cpu: 70m
+
+
+
