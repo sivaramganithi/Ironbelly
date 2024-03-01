@@ -4,7 +4,11 @@
   "description": "A simple echo web server that needs to be dockerized and prepared for deployment in a Kubernetes cluster.",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "docker:stop": "docker container stop ironbelly_container",
+    "docker:remove": "docker container rm ironbelly_container",
+    "docker:build": "docker build -t ironbelly .",
+    "docker:run": "docker run -p 3000:3000 -d --name ironbelly_container ironbelly"
   },
   "author": "Ironbelly",
   "license": "ISC",
